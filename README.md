@@ -36,7 +36,7 @@ I introduced a `MACHINE` flag so that this build works across both my desktop an
 
 There are likely much better solutions to this problem... this was just the first one that came to mind, and it may change in the future.
 
-The [`HOSTNAME`](https://github.com/elijw/dwm/blob/3dec9494ef641e72405a5a60ca2d62bdc54ecd87/config.mk#L11) variable is set using the `hostname` command and [compared against a hard-coded value](https://github.com/elijw/dwm/blob/3dec9494ef641e72405a5a60ca2d62bdc54ecd87/config.mk#L13-L19) (your desktop’s hostname). Based on this check, `MACHINE` is assigned either `0` or `1` and passed to the compiler via `CPPFLAGS += -DMACHINE=$(MACHINE)`.
+The [`HOSTNAME`](https://github.com/elijw/dwm/blob/3dec9494ef641e72405a5a60ca2d62bdc54ecd87/config.mk#L11) variable is set using the `hostname` command and [compared against a hard-coded value](https://github.com/elijw/dwm/blob/3dec9494ef641e72405a5a60ca2d62bdc54ecd87/config.mk#L13-L19) (your [desktop’s hostname](https://github.com/elijw/dwm/blob/3dec9494ef641e72405a5a60ca2d62bdc54ecd87/config.mk#L7)). Based on this check, `MACHINE` is assigned either `0` or `1` and passed to the compiler via `CPPFLAGS += -DMACHINE=$(MACHINE)`.
 
 This makes it possible to keep a single repository and build configuration that automatically adapts to the machine it’s being built on. I’ve applied this modification to all my suckless repos.
 
