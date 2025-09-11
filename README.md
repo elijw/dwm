@@ -8,13 +8,7 @@ See [modifications](#modifications) before building.
 
 * [Applied patches](#applied-patches)
 * [Modifications](#modifications)
-  * [MACHINE flag](#machine-flag)
-  * [Example usage of MACHINE](#example-usage-of-machine)
 * [Compiling / building](#compiling--building)
-  * [Requirements](#requirements)
-  * [Building](#building)
-  * [config.mk](#configmk)
-  * [Makefile targets](#makefile-targets)  
 
 ## Applied patches
 
@@ -26,10 +20,15 @@ See [modifications](#modifications) before building.
 * dwmc
 * movestack
 * pertag\_with-sel
-* vanitygaps
+* vanitygaps ([hardcoded](https://github.com/elijw/dwm/blob/711091138ceabf2dd97e99e9b9e6d11360bad71e/config.def.h#L23-L30) gaps. [commented out all but one keybind](https://github.com/elijw/dwm/blob/711091138ceabf2dd97e99e9b9e6d11360bad71e/config.def.h#L170C5-L185C74))
 * xrdb  
 
 ## Modifications  
+
+* [MACHINE flag](#machine-flag)
+  * [Example usage of MACHINE](#example-usage-of-machine)
+* [Layouts enum](#layouts-enum)
+* [Modifier aliases](#modifier-aliases)
 
 ### MACHINE flag
 
@@ -42,7 +41,7 @@ The [`HOSTNAME`](https://github.com/elijw/dwm/blob/a04e525e93169e8b34004ac2e76bf
 This makes it possible to keep a single repository and build configuration that automatically adapts to the machine it’s being built on. I’ve applied this modification to all my suckless repos.
 
 ```mk
-// config.mk
+# config.mk
 
 # cross-machine solution
 # ----------------------
@@ -88,6 +87,22 @@ static const float mfact            = 0.50; // master area size
 static const unsigned int refreshhz = 144;  // high refresh monitor
 #endif
 ```
+---  
+### `Layouts` enum  
+
+Made an [enum for the layouts array] to replace magic numbers with readable names. It might be a bit heretical by suckless standards, but after years of dealing with mysterious array indices in college, I can’t help myself.  
+
+---  
+
+### Modifier aliases  
+
+Another slightly controversial tweak: I defined my own aliases for modifier keys instead of using the ModMask directly.
+```c
+#define ALT   Mod1Mask
+#define SUPER Mod4Mask
+```
+**Why?**: Makes keybindings  easier to read at a glance.  
+I apologize if this makes you cringe.  
 
 ## Compiling / building
 
