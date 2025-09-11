@@ -89,6 +89,9 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
+#define ALT   Mod1Mask
+#define SUPER Mod4Mask
+
 #define TAGKEYS(KEY, TAG)                                                      \
     {SUPER, KEY, view, {.ui = 1 << TAG}},                                      \
         {SUPER | ControlMask, KEY, toggleview, {.ui = 1 << TAG}},              \
@@ -109,8 +112,22 @@ static const Layout layouts[] = {
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+    //{ SUPER,                       XK_r,      spawn,          {.v =
+    // dmenucmd } },
+    {SUPER | ControlMask | ShiftMask, XK_1,      spawn,          {.v = flameshotcmd}             },
+    {SUPER,                           XK_r,      spawn,          {.v = dmenucmd}                 },
+    {SUPER | ShiftMask,               XK_r,      spawn,          {.v = roficmd}                  },
+    {SUPER,                           XK_Return, spawn,          {.v = kittycmd}                 },
+    {SUPER,                           XK_b,      togglebar,      {0}                             },
+    {SUPER,                           XK_j,      focusstack,     {.i = +1}                       },
+    {SUPER,                           XK_k,      focusstack,     {.i = -1}                       },
+    {SUPER,                           XK_i,      incnmaster,     {.i = +1}                       },
+    {SUPER,                           XK_d,      incnmaster,     {.i = -1}                       },
+    {SUPER,                           XK_h,      setmfact,       {.f = -0.05}                    },
+    {SUPER,                           XK_l,      setmfact,       {.f = +0.05}                    },
     {SUPER | ShiftMask,               XK_j,      movestack,      {.i = +1}                       },
     {SUPER | ShiftMask,               XK_k,      movestack,      {.i = -1}                       },
+    {SUPER,                           XK_z,      zoom,           {0}                             },
 	//{SUPER | Mod1Mask,                XK_u,      incrgaps,       {.i = +1} },
     //{SUPER | Mod1Mask | ShiftMask,    XK_u,      incrgaps,       {.i = -1} },
     //{SUPER | Mod1Mask,                XK_i,      incrigaps,      {.i = +1} },
@@ -127,6 +144,17 @@ static const Key keys[] = {
     //{SUPER | Mod1Mask | ShiftMask,    XK_9,      incrovgaps,     {.i = -1} },
 	{SUPER | ALT,                     XK_0,      togglegaps,     {0}                             },
 	//{SUPER | Mod1Mask | ShiftMask,    XK_0,      defaultgaps,    {0} },
+    {SUPER,                           XK_Tab,    view,           {0}                             },
+    {SUPER,                           XK_q,      killclient,     {0}                             },
+    {SUPER,                           XK_space,  setlayout,      {0}                             },
+    {SUPER | ShiftMask,               XK_space,  togglefloating, {0}                             },
+    {SUPER,                           XK_0,      view,           {.ui = ~0}                      },
+    {SUPER | ShiftMask,               XK_0,      tag,            {.ui = ~0}                      },
+    {SUPER,                           XK_comma,  focusmon,       {.i = -1}                       },
+    {SUPER,                           XK_period, focusmon,       {.i = +1}                       },
+    {SUPER | ShiftMask,               XK_comma,  tagmon,         {.i = -1}                       },
+    {SUPER | ShiftMask,               XK_period, tagmon,         {.i = +1}                       },
+    {SUPER,                           XK_F5,     xrdb,           {.v = NULL}                     },
     TAGKEYS(XK_1, 0) TAGKEYS(XK_2, 1) TAGKEYS(XK_3, 2) TAGKEYS(XK_4, 3)
         TAGKEYS(XK_5, 4) TAGKEYS(XK_6, 5) TAGKEYS(XK_7, 6) TAGKEYS(XK_8, 7)
             TAGKEYS(XK_9, 8){SUPER | ShiftMask,               XK_q,      quit,           {0}                             },
