@@ -66,11 +66,11 @@ static const char* colors[][3] = {
 static const char* tags[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
 static const Rule rules[] = {
-	/* xprop(1):
-	 *	WM_CLASS(STRING) = instance, class
-	 *	WM_NAME(STRING) = title
-	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
+    /* xprop(1):
+     *	WM_CLASS(STRING) = instance, class
+     *	WM_NAME(STRING) = title
+     */
+    /* class      instance    title       tags mask     isfloating   monitor */
     {"Gimp",    NULL, NULL, 0,      1, -1},
     {"Firefox", NULL, NULL, 1 << 8, 0, -1},
 };
@@ -156,7 +156,7 @@ static const char* kittycmd[] = {"kitty", NULL};
 #include "movestack.c"
 
 static const Key keys[] = {
-	/* modifier                     key        function        argument */
+    /* modifier                     key        function        argument */
     //{ SUPER,                       XK_r,      spawn,          {.v =
     // dmenucmd } },
     {SUPER | ControlMask | ShiftMask, XK_1,      spawn,          {.v = flameshotcmd}             },
@@ -173,22 +173,22 @@ static const Key keys[] = {
     {SUPER | ShiftMask,               XK_j,      movestack,      {.i = +1}                       },
     {SUPER | ShiftMask,               XK_k,      movestack,      {.i = -1}                       },
     {SUPER,                           XK_z,      zoom,           {0}                             },
-	//{SUPER | Mod1Mask,                XK_u,      incrgaps,       {.i = +1} },
+    //{SUPER | Mod1Mask,                XK_u,      incrgaps,       {.i = +1} },
     //{SUPER | Mod1Mask | ShiftMask,    XK_u,      incrgaps,       {.i = -1} },
     //{SUPER | Mod1Mask,                XK_i,      incrigaps,      {.i = +1} },
-	//{SUPER | Mod1Mask | ShiftMask,    XK_i,      incrigaps,      {.i = -1} },
+    //{SUPER | Mod1Mask | ShiftMask,    XK_i,      incrigaps,      {.i = -1} },
     //{SUPER | Mod1Mask,                XK_o,      incrogaps,      {.i = +1} },
-	//{SUPER | Mod1Mask | ShiftMask,    XK_o,      incrogaps,      {.i = -1} },
+    //{SUPER | Mod1Mask | ShiftMask,    XK_o,      incrogaps,      {.i = -1} },
     //{SUPER | Mod1Mask,                XK_6,      incrihgaps,     {.i = +1} },
-	//{SUPER | Mod1Mask | ShiftMask,    XK_6,      incrihgaps,     {.i = -1} },
+    //{SUPER | Mod1Mask | ShiftMask,    XK_6,      incrihgaps,     {.i = -1} },
     //{SUPER | Mod1Mask,                XK_7,      incrivgaps,     {.i = +1} },
-	//{SUPER | Mod1Mask | ShiftMask,    XK_7,      incrivgaps,     {.i = -1} },
+    //{SUPER | Mod1Mask | ShiftMask,    XK_7,      incrivgaps,     {.i = -1} },
     //{SUPER | Mod1Mask,                XK_8,      incrohgaps,     {.i = +1} },
-	//{SUPER | Mod1Mask | ShiftMask,    XK_8,      incrohgaps,     {.i = -1} },
+    //{SUPER | Mod1Mask | ShiftMask,    XK_8,      incrohgaps,     {.i = -1} },
     //{SUPER | Mod1Mask,                XK_9,      incrovgaps,     {.i = +1} },
     //{SUPER | Mod1Mask | ShiftMask,    XK_9,      incrovgaps,     {.i = -1} },
-	{SUPER | ALT,                     XK_0,      togglegaps,     {0}                             },
-	//{SUPER | Mod1Mask | ShiftMask,    XK_0,      defaultgaps,    {0} },
+    {SUPER | ALT,                     XK_0,      togglegaps,     {0}                             },
+    //{SUPER | Mod1Mask | ShiftMask,    XK_0,      defaultgaps,    {0} },
     {SUPER,                           XK_Tab,    view,           {0}                             },
     {SUPER,                           XK_q,      killclient,     {0}                             },
     {SUPER,                           XK_t,      setlayout,      {.v = &layouts[LAYOUT_TILE]}    },
