@@ -76,16 +76,40 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
-static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+typedef enum
+{
+    LAYOUT_TILE,
+    LAYOUT_MONOCLE,
+    LAYOUT_SPIRAL,
+    LAYOUT_DWINDLE,
+    LAYOUT_DECK,
+    LAYOUT_BSTACK,
+    LAYOUT_BSTACK_HORIZ,
+    LAYOUT_GRID,
+    LAYOUT_NROWGRID,
+    LAYOUT_HORIZGRID,
+    LAYOUT_GAPLESSGRID,
+    LAYOUT_CENTERED_MASTER,
+    LAYOUT_CENTERED_FLOATING_MASTER,
+    LAYOUT_FLOATING,
+    LAYOUT_LAST // sentinel for number of layouts
+} LayoutId;
 
 static const Layout layouts[] = {
-	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+    [LAYOUT_TILE] = {"[]=",  tile                  },
+    [LAYOUT_MONOCLE] = {"[M]",  monocle               },
+    [LAYOUT_SPIRAL] = {"[@]",  spiral                },
+    [LAYOUT_DWINDLE] = {"[\\]", dwindle               },
+    [LAYOUT_DECK] = {"H[]",  deck                  },
+    [LAYOUT_BSTACK] = {"TTT",  bstack                },
+    [LAYOUT_BSTACK_HORIZ] = {"===",  bstackhoriz           },
+    [LAYOUT_GRID] = {"HHH",  grid                  },
+    [LAYOUT_NROWGRID] = {"###",  nrowgrid              },
+    [LAYOUT_HORIZGRID] = {"---",  horizgrid             },
+    [LAYOUT_GAPLESSGRID] = {":::",  gaplessgrid           },
+    [LAYOUT_CENTERED_MASTER] = {"|M|",  centeredmaster        },
+    [LAYOUT_CENTERED_FLOATING_MASTER] = {">M>",  centeredfloatingmaster},
+    [LAYOUT_FLOATING] = {"><>",  NULL                  },
 };
 
 /* key definitions */
@@ -146,6 +170,10 @@ static const Key keys[] = {
 	//{SUPER | Mod1Mask | ShiftMask,    XK_0,      defaultgaps,    {0} },
     {SUPER,                           XK_Tab,    view,           {0}                             },
     {SUPER,                           XK_q,      killclient,     {0}                             },
+    {SUPER,                           XK_t,      setlayout,      {.v = &layouts[LAYOUT_TILE]}    },
+    {SUPER,                           XK_f,      setlayout,      {.v = &layouts[LAYOUT_FLOATING]}},
+    {SUPER,                           XK_m,      setlayout,      {.v = &layouts[LAYOUT_MONOCLE]} },
+    {SUPER,                           XK_s,      setlayout,      {.v = &layouts[LAYOUT_BSTACK]}  },
     {SUPER,                           XK_space,  setlayout,      {0}                             },
     {SUPER | ShiftMask,               XK_space,  togglefloating, {0}                             },
     {SUPER,                           XK_0,      view,           {.ui = ~0}                      },
