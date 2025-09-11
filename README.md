@@ -90,7 +90,7 @@ static const unsigned int refreshhz = 144;  // high refresh monitor
 ---  
 ### `Layouts` enum  
 
-Made an [enum for the layouts array] to replace magic numbers with readable names. It might be a bit heretical by suckless standards, but after years of dealing with mysterious array indices in college, I can’t help myself.  
+Made an [enum for the layouts array](https://github.com/elijw/dwm/blob/0c8e46f8990d08b26f101e47ca50908c2ebc1045/config.def.h#L90-L107) to replace magic numbers with readable names. It might be a bit heretical by suckless standards, but after years of dealing with mysterious array indices in college, I can’t help myself.  
 
 ---  
 
