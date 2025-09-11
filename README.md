@@ -20,7 +20,7 @@ See [modifications](#modifications) before building.
 * dwmc
 * movestack
 * pertag\_with-sel
-* vanitygaps ([hardcoded](https://github.com/elijw/dwm/blob/711091138ceabf2dd97e99e9b9e6d11360bad71e/config.def.h#L23-L30) gaps. [commented out all but one keybind](https://github.com/elijw/dwm/blob/711091138ceabf2dd97e99e9b9e6d11360bad71e/config.def.h#L170C5-L185C74))
+* vanitygaps ([hardcoded](https://github.com/elijw/dwm/blob/3dec9494ef641e72405a5a60ca2d62bdc54ecd87/config.def.h#L23-L30) gaps. [commented out all but one keybind](https://github.com/elijw/dwm/blob/3dec9494ef641e72405a5a60ca2d62bdc54ecd87/config.def.h#L176-L191))
 * xrdb  
 
 ## Modifications  
@@ -36,7 +36,7 @@ I introduced a `MACHINE` flag so that this build works across both my desktop an
 
 There are likely much better solutions to this problem... this was just the first one that came to mind, and it may change in the future.
 
-The [`HOSTNAME`](https://github.com/elijw/dwm/blob/a04e525e93169e8b34004ac2e76bf2bdff5a3411/config.mk#L9-L11) variable is set using the `hostname` command and compared against a hard-coded value (your desktop’s hostname). Based on this check, `MACHINE` is assigned either `0` or `1` and passed to the compiler via [`CPPFLAGS`](https://github.com/elijw/dwm/blob/a04e525e93169e8b34004ac2e76bf2bdff5a3411/config.mk#L51).
+The [`HOSTNAME`](https://github.com/elijw/dwm/blob/3dec9494ef641e72405a5a60ca2d62bdc54ecd87/config.mk#L11) variable is set using the `hostname` command and [compared against a hard-coded value](https://github.com/elijw/dwm/blob/3dec9494ef641e72405a5a60ca2d62bdc54ecd87/config.mk#L13-L19) (your desktop’s hostname). Based on this check, `MACHINE` is assigned either `0` or `1` and passed to the compiler via `CPPFLAGS += -DMACHINE=$(MACHINE)`.
 
 This makes it possible to keep a single repository and build configuration that automatically adapts to the machine it’s being built on. I’ve applied this modification to all my suckless repos.
 
@@ -106,7 +106,7 @@ I apologize if this makes you cringe.
 
 ## Compiling / building
 
-If you haven't, modify line 7 in [config.mk](https://github.com/elijw/dwm/blob/a04e525e93169e8b34004ac2e76bf2bdff5a3411/config.mk#L7) to reflect your desktop machine's `$HOSTNAME`.
+If you haven't, modify line 7 in [config.mk](https://github.com/elijw/dwm/blob/3dec9494ef641e72405a5a60ca2d62bdc54ecd87/config.mk#L7) to reflect your desktop machine's `$HOSTNAME`.
 
 * [Requirements](#requirements)
 * [Building](#building)
