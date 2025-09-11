@@ -1,0 +1,12 @@
+# dwm stuff
+dwm
+config.h
+.cache/
+
+# patch stuff
+*.o
+*.rej
+*.orig
+
+# other stuff
+compile_commands.json
