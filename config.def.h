@@ -1,5 +1,22 @@
 /* See LICENSE file for copyright and license details. */
 
+// my cross-machine hack stuff
+#define DESKTOP 0
+#define LAPTOP  1
+
+/*
+ * wrap machine-conditional code with:
+ *
+ *     #if MACHINE == LAPTOP
+ *       // laptop code
+ *     #else
+ *       // desktop code
+ *     #endif
+ *
+ * or something similar
+ *
+ */
+
 /* appearance */
 static const unsigned int borderpx = 1; /* border pixel of windows */
 static const unsigned int snap = 10;    /* snap pixel */
@@ -13,7 +30,14 @@ static int smartgaps =
     0; /* 1 means no outer gap when there is only one window */
 static const int showbar = 1; /* 0 means no bar */
 static const int topbar = 1;  /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
+
+#if MACHINE == LAPTOP
+static const int refreshrate = 60;
+#else
+static const int refreshrate = 144;
+#endif
+
+static const char* fonts[] = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";

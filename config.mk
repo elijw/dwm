@@ -1,6 +1,24 @@
 # dwm version
 VERSION = 6.5
 
+# cross-machine solution
+# ----------------------
+# set DESKTOP_HOSTNAME to your desktop's hostname
+DESKTOP_HOSTNAME ?= arch-desktop
+
+# automatically determine MACHINE based on HOSTNAME
+# MACHINE = 0 -> desktop, MACHINE = 1 -> laptop
+HOSTNAME := $(shell hostname)
+
+ifeq ($(origin MACHINE), undefined)
+ifeq ($(HOSTNAME),$(DESKTOP_HOSTNAME))
+	MACHINE := 0
+else
+	MACHINE := 1
+endif
+endif
+
+
 # Customize below to fit your system
 
 # paths
@@ -27,6 +45,9 @@ LIBS = -L${X11LIB} -lX11 ${XINERAMALIBS} ${FREETYPELIBS}
 
 # flags
 CPPFLAGS = -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=700L -DVERSION=\"${VERSION}\" ${XINERAMAFLAGS}
+
+CPPFLAGS += -DMACHINE=$(MACHINE)
+
 #CFLAGS   = -g -std=c99 -pedantic -Wall -O0 ${INCS} ${CPPFLAGS}
 CFLAGS   = -std=c99 -pedantic -Wall -Wno-deprecated-declarations -Os ${INCS} ${CPPFLAGS}
 LDFLAGS  = ${LIBS}
