@@ -207,9 +207,11 @@ static const Key keys[] = {
     {SUPER | ShiftMask,               XK_comma,  tagmon,         {.i = -1}                       },
     {SUPER | ShiftMask,               XK_period, tagmon,         {.i = +1}                       },
     {SUPER,                           XK_F5,     xrdb,           {.v = NULL}                     },
+    {SUPER | ShiftMask,               XK_q,      quit,           {0}                             },
+
     TAGKEYS(XK_1, 0) TAGKEYS(XK_2, 1) TAGKEYS(XK_3, 2) TAGKEYS(XK_4, 3)
         TAGKEYS(XK_5, 4) TAGKEYS(XK_6, 5) TAGKEYS(XK_7, 6) TAGKEYS(XK_8, 7)
-            TAGKEYS(XK_9, 8){SUPER | ShiftMask,               XK_q,      quit,           {0}                             },
+            TAGKEYS(XK_9, 8)
 };
 
 /* button definitions */
