@@ -121,6 +121,7 @@ static const Layout layouts[] = {
     [LAYOUT_CENTERED_MASTER] = {"|M|",  centeredmaster        },
     [LAYOUT_CENTERED_FLOATING_MASTER] = {">M>",  centeredfloatingmaster},
     [LAYOUT_FLOATING] = {"><>",  NULL                  },
+    [LAYOUT_LAST] = {NULL,   NULL                  },
 };
 
 /* key definitions */

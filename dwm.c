@@ -250,6 +250,7 @@ static void configure(Client* c);
 static void configurenotify(XEvent* e);
 static void configurerequest(XEvent* e);
 static Monitor* createmon(void);
+static void cyclelayout(const Arg* arg);
 static void destroynotify(XEvent* e);
 static void detach(Client* c);
 static void detachstack(Client* c);
