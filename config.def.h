@@ -195,6 +195,8 @@ static const Key keys[] = {
     {SUPER,                           XK_f,      setlayout,      {.v = &layouts[LAYOUT_FLOATING]}},
     {SUPER,                           XK_m,      setlayout,      {.v = &layouts[LAYOUT_MONOCLE]} },
     {SUPER,                           XK_s,      setlayout,      {.v = &layouts[LAYOUT_BSTACK]}  },
+    {SUPER | ControlMask,             XK_comma,  cyclelayout,    {.i = -1}                       },
+    {SUPER | ControlMask,             XK_period, cyclelayout,    {.i = +1}                       },
     {SUPER,                           XK_space,  setlayout,      {0}                             },
     {SUPER | ShiftMask,               XK_space,  togglefloating, {0}                             },
     {SUPER,                           XK_0,      view,           {.ui = ~0}                      },
