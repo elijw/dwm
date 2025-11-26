@@ -32,9 +32,9 @@ static const int showbar = 1; /* 0 means no bar */
 static const int topbar = 1;  /* 0 means bottom bar */
 
 #if MACHINE == LAPTOP
-static const int refreshrate = 60;
+static const int refreshrate = 60; // laptop refreshrate
 #else
-static const int refreshrate = 144;
+static const int refreshrate = 144; // desktop refreshrate
 #endif
 
 static const char* fonts[] = {"JetBrainsMono Nerd Font", "monospace:size=12"};
@@ -153,13 +153,14 @@ static const char* termcmd[] = {"st", NULL};
 static const char* roficmd[] = {"rofi", "-show", "drun", NULL};
 static const char* flameshotcmd[] = {"flameshot", "gui", NULL};
 static const char* kittycmd[] = {"kitty", NULL};
+static const char* xtermcmd[] = {"xterm", "-fn", "JetBrainsMonoNF", "-fs",
+                                 "11",    "-bg", "black",           "-fg",
+                                 "white", NULL};
 
 #include "movestack.c"
 
 static const Key keys[] = {
     /* modifier                     key        function        argument */
-    //{ SUPER,                       XK_r,      spawn,          {.v =
-    // dmenucmd } },
     {SUPER | ControlMask | ShiftMask, XK_1,      spawn,          {.v = flameshotcmd}             },
     {SUPER,                           XK_r,      spawn,          {.v = dmenucmd}                 },
     {SUPER | ShiftMask,               XK_r,      spawn,          {.v = roficmd}                  },

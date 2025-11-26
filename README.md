@@ -101,7 +101,9 @@ static const float mfact            = 0.50; // master area size
 static const unsigned int refreshhz = 144;  // high refresh monitor
 #endif
 ```
+
 ---  
+
 ### `Layouts` enum  
 
 Made an [enum for the layouts array](https://github.com/elijw/dwm/blob/0c8e46f8990d08b26f101e47ca50908c2ebc1045/config.def.h#L90-L107) to replace magic numbers with readable names. It might be a bit heretical by suckless standards, but after years of dealing with mysterious array indices in college, I can’t help myself.  
@@ -111,10 +113,12 @@ Made an [enum for the layouts array](https://github.com/elijw/dwm/blob/0c8e46f89
 ### Modifier aliases  
 
 Another slightly controversial tweak: I defined my own aliases for modifier keys instead of using the ModMask directly.
+
 ```c
 #define ALT   Mod1Mask
 #define SUPER Mod4Mask
 ```
+
 **Why?**: Makes keybindings  easier to read at a glance.  
 I apologize if this makes you cringe.  
 
