@@ -4,11 +4,25 @@ Hi. Original dwm readme [here](README.original).
 
 See [modifications](#modifications) before building.
 
+Keybinds can be found [here](KEYBINDS.md).
+
 ## Table of Contents
 
+* [Requirements](#requirements)
 * [Applied patches](#applied-patches)
 * [Modifications](#modifications)
 * [Compiling / building](#compiling--building)
+
+## Requirements
+
+My configuration uses the following *things* for my default commands:
+
+* flameshot
+* kitty
+* rofi
+* JetBrains Mono Nerd Font
+
+Optionally, there is a command `termcmd` already made that can be used (if you prefer *st*) in place of `kittycmd` on line 169 of [config.def.h](config.def.h).
 
 ## Applied patches
 
